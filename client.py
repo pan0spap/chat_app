@@ -103,7 +103,6 @@ def sumbit():
                 tkinter.messagebox.showerror('Error', 'Password should contain at least one single character!') 
             elif not re.search('\d', entry_password.get()):
                 tkinter.messagebox.showerror('Error', 'Password should contain at least one number!')         
-        
             else:
                 encrypted_password()
                 users_database()

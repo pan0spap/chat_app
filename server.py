@@ -28,13 +28,13 @@ def handle_client(communication_socket, addr):
     while connected:
         mesg = communication_socket.recv(1024).decode('utf-8')
         if mesg == DISCONNECT_MESSAGE:
-            client_disconnect = f"{username} has disconnect!"
+            client_disconnect = f"{username} has disconnected!"
             broadcast(client_disconnect.encode('utf-8'))
             clients.remove(communication_socket)
             connected = False
         else:
             broadcast(mesg.encode('utf-8'))    
-
+    communication_socket.close()
 
 def run_server():
     server.listen()
